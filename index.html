@@ -1,0 +1,113 @@
+<html>
+<head>
+<title> Anagram finder by Omkar </title>
+<style>
+*{font-size:40px;}
+body{background-color:lightblue;}
+h1{background-color:black;color:white;width:50%;border-radius:40px;}
+.btn{background-color:black;color:white;width:30%;border-radius:40px;}
+.btn:hover{color:red;}
+
+
+</style>
+</head>
+<body>
+<center>
+<h1> Anagram Finder App </h1>
+<form onsubmit="check()">
+<input type="text" placeholder="Enter first string" id="str1" />
+<br/><br/>
+<input type="text" placeholder="Enter second string" id="str2" />
+<br/><br/>
+<input type="submit" value="Find" class="btn"/>
+
+</form>
+<h2 id="msg" />
+	<script>
+		function check()
+		{
+			event.preventDefault();
+			let str1=document.getElementById("str1")
+			let str2=document.getElementById("str2")
+			let msg=document.getElementById("msg")
+
+			if (str1.value==="")
+			{
+				alert("u did not enter the first string");
+				msg.innerHTML="";
+				str1.focus();
+				return;
+
+			}
+
+			if (str1.value.trim()==="")
+			{
+				alert("string cannot be empty spaces");
+				msg.innerHTML="";
+				str1.value="";
+				str1.focus();
+				return;
+
+			}
+
+			if (!str1.value.match("^[A-z]+$"))
+			{
+				alert("string can only have alphabets");
+				msg.innerHTML="";
+				str1.value="";
+				str1.focus();
+				return;
+
+			}
+
+			if (str2.value==="")
+			{
+				alert("u did not enter the second string");
+				msg.innerHTML="";
+				str2.focus();
+				return;
+
+			}
+
+			if (str2.value.trim()==="")
+			{
+				alert("string cannot be empty spaces");
+				msg.innerHTML="";
+				str2.value="";
+				str2.focus();
+				return;
+
+			}
+
+			if (!str2.value.match("^[A-z]+$"))
+			{
+				alert("string can only have alphabets");
+				msg.innerHTML="";
+				str2.value="";
+				str2.focus();
+				return;
+
+			}
+
+			let res="";
+			let ns1=str1.value.split("").sort().join("")
+			let ns2=str2.value.split("").sort().join("")
+			if (ns1 == ns2)
+				res="Yes they are Anagrams";
+			else
+				res="Nopes they are not Anagrams";
+			msg.innerHTML=res;
+			
+
+
+		}
+
+
+	</script>
+
+</center>
+
+</body>
+
+
+</html>
